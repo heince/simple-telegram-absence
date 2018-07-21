@@ -1,0 +1,29 @@
+#
+#===============================================================================
+#
+#         FILE: 01-file.t6
+#
+#  DESCRIPTION: 
+#
+#        FILES: ---
+#         BUGS: ---
+#        NOTES: ---
+#       AUTHOR: Heince Kurniawan (), heince.kurniawan@itgroupinc.asia
+# ORGANIZATION: IT Group Indonesia
+#      VERSION: 1.0
+#      CREATED: 07/20/18 22:45:16
+#     REVISION: ---
+#===============================================================================
+use v6;
+use Test;
+
+plan 2;
+my $absen_db    = ~$*PROGRAM.sibling: '../db/absen.db';
+my $absen_main  = ~$*PROGRAM.sibling: '../sbin/absence.p6';
+
+is $absen_db.IO.f, True, 'db/absen.db exist';
+ok $absen_main.IO.s > 0, 'sbin/absence.p6 exist and not empty';
+
+done-testing;
+
+
